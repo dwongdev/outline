@@ -313,6 +313,10 @@ width: 100%;
     background: ${props.theme.mentionHoverBackground};
   }
 
+  &[data-type="user"] {
+    gap: 0;
+  }
+
   &.mention-user::before {
     content: "@";
   }
@@ -703,6 +707,7 @@ img.ProseMirror-separator {
   resize: none;
   user-select: text;
   margin: 0 auto !important;
+  max-width: 100vw;
 }
 
 .ProseMirror[contenteditable="false"] {
@@ -1329,6 +1334,13 @@ mark {
 
 .code-block {
   position: relative;
+}
+
+.code-block[data-language=none],
+.code-block[data-language=markdown] {
+  pre code {
+    color: ${props.theme.text};
+  }
 }
 
 .code-block[data-language=mermaidjs] {
